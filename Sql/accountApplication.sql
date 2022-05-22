@@ -23,7 +23,8 @@ create table UserAccount(
   EmployeeIndustry varchar(255) DEFAULT '-',
   MonthlyIncome float DEFAULT 00000.00,
   workTelnumber INT(13) DEFAULT 07,
-  cardType varchar(255) DEFAULT '-'
+  cardType varchar(255) DEFAULT '',
+  cardBalance FLOAT DEFAULT 2500 
 );
 
 ALTER TABLE UserAccount AUTO_INCREMENT = 10001;

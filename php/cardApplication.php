@@ -32,7 +32,7 @@
           $cardType = $row['cardType'];
         }
       }
-      if(!($cardType == '-')){
+      if(!($cardType == '')){
         $_SESSION['trueMessage'] = "Sorry..! You can have only one credit card in our Bank";
         header("Location:./cardTrue.php");
       }
@@ -51,7 +51,7 @@
         cardType = '$_POST[cardType]' WHERE Username = '$checkUser'"));
 
       if($sql){
-        $_SESSION['trueMessage'] = "Your Loan was successfully Submitted.";
+        $_SESSION['trueMessage'] = "Your Credit card form was successfully Submitted.";
         header("Location:./cardTrue.php");
       }
       else{
@@ -72,7 +72,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Local Trust Bank New Credit Card Application</title>
+  <title>Credit Card Application</title>
   <link rel="shortcut icon" href="../images/logo/blue-logo-02.jpg">
   <link rel="stylesheet" href="../css/cardApplication.css">
   <link rel="stylesheet" href="../css/common-style.css">
@@ -108,7 +108,6 @@
             <button type="button"  id="close-btn" onclick="clearContent()"><i class="fa-solid fa-xmark"></i></button>
           </div>
         </div>
-        <button onclick="togNav()" class="btn hamburger"><i class="fa-solid fa-bars"></i></button>
       </div>
       <ul class="t-nav-list">
         <li class="t-nav-item"><a href="#" class="t-nav-link">Home</a></li>

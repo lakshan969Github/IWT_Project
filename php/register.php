@@ -16,41 +16,42 @@
             $userCheck = ($connection -> query("SELECT * FROM useraccount WHERE Username = '$username'"));
 
             if(mysqli_num_rows($userCheck) > 0){
-                $errorMessage = 'Username is Already taken! Try with another username';
-                require_once './errorPage.php';
+                $_SESSION['checkData'] = 'Username is Already taken! Try with another username';
+                header("Location:./errorPage.php");
             }
             else{
                 if($password == $cPassword){
 
-                    if(!(strlen($cPassword) > 6)){
-                        $errorMessage = 'Password is too short! Password must be have at least 6 characters';
-                        require_once './errorPage.php';
+                    if(!(strlen($cPassword) >= 6)){
+                        $_SESSION['checkData'] = 'Password is too short! Password must be have at least 6 characters';
+                        header("Location:./errorPage.php");
+
                     }
                     else{
-                        $encPassword = sha1($cPassword);
 
                         $sql =($connection->query("UPDATE  useraccount SET Username = '$username', Apassword = '$cPassword' WHERE AccountNo = '$aNo'")); 
 
                         if($sql){
                             header("Location:../html/login.html");
-                            // require_once '../html/login.html';
                         }
                         else{
-                            $errorMessage = 'File Submission is Failed';
-                            require_once './errorPage.php';
+                            $_SESSION['checkData'] = 'File Submission is Failed';
+                            header("Location:./errorPage.php");
+
                         }
                     }
                 }
                 else{
-                    $errorMessage = 'Passwords are not Matched! Try again';
-                    require_once './errorPage.php';
+                    $_SESSION['checkData'] = 'Passwords are not Matched! Try again';
+                    header("Location:./errorPage.php");
                 }
 
             }
         }
         else{
-            $errorMessage = 'Input fields are empty!';
-            require_once './errorPage.php';
+            $_SESSION['checkData'] = 'Input fields are empty!';
+            header("Location:./errorPage.php");
+
         }
 
     }

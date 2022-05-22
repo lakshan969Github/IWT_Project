@@ -37,7 +37,15 @@
           $username =  $row['Username'];
           $accountNo =  $row['AccountNo'];
           $accBalance = $row['AccountBalance'];
+          $cardType =  $row['cardType'];
+          if($cardType == ''){
+            $cardBalance =  "You don't have any Credit card";
+          }
+          else{
+            $cardBalance = "LKR.".$row['cardBalance'];
+          }
         }
+
     }
 
 
@@ -158,14 +166,14 @@
                 </ul>
               </div>
               <div class="card-info">
-                <h3 class="details-title">Credit Card Balance</h3>
-                <h2>LKR 1000023.00</h2>
+                <h3 class="details-title">Credit Card Balance <?php echo '('. $cardType . ')' ?></h3>
+                <h2><?php echo $cardBalance ?></h2>
                 <img src="../images/6072743.jpg" alt="#" class="card-img">
               </div>
             </div>
             <div class="trans-content">
               <div class="trans-link">
-                <a href="#">View All Transactions</a>
+                <a href="./ePassBook.php" target="_blank">View All Transactions</a>
               </div>
               <ul class="trans-list">
                 <li>

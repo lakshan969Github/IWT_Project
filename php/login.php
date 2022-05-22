@@ -19,7 +19,7 @@
             header('location:../html/home.html');
         }
         else{
-            require_once './log-error.php';
+            header('location:./log-error.php');
         }
     }
 

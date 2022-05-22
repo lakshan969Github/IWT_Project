@@ -1,4 +1,19 @@
+<?php require_once './connect.php' ?>
+
 <?php
+
+    $getUser = '';
+
+    session_start();
+
+    $getUser = $_SESSION['username'];
+
+    if($getUser == ''){
+        header('Location:../html/login.html');
+    }
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -218,7 +233,7 @@
     </section>
     <!-- end of feedback  form -->
 
-    <a href="#m-cont" class="scroll-link top-link"><i class="fa-solid fa-angles-up"></i></a>
+    <a href="#m-cont" class="scroll-link top-link"><i class="fa-solid fa-circle-chevron-up"></i></a>
   </main>
   <script src="../JS/script.js"></script>
   <script>
@@ -226,3 +241,6 @@
       currentDate.innerHTML = new Date().toLocaleDateString();
   </script>
 </body>
+</html>
+
+<?php $connection->close() ?>
