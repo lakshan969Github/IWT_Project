@@ -89,17 +89,17 @@
         <li><a href="#"><i class="fa-solid fa-envelope"></i><span>localTrust@info.lk</span></a></li>
       </ul>
       <ul class="d-nav apps-list">
-        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+        <li><a href="https://lk.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
       </ul>
     </nav>
     <!-- header -->
     <header class="top-header" id="header-top">
       <div class="t-h-st">
         <div class="logo-content">
-          <a href="#" class="logo-link"><img src="../images/logo/blue-logo-02.jpg" style="color:#fff;" alt="#" class="logo-img"></a>
+          <a href="../html/home.html" class="logo-link"><img src="../images/logo/blue-logo-02.jpg" style="color:#fff;" alt="#" class="logo-img"></a>
         </div>
         <div class="search-content">
           <div class="s-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -110,29 +110,29 @@
         </div>
       </div>
       <ul class="t-nav-list">
-        <li class="t-nav-item"><a href="#" class="t-nav-link">Home</a></li>
+        <li class="t-nav-item"><a href="../html/home.html" class="t-nav-link">Home</a></li>
 
         <!-- dropdown list -->
         <li class="t-nav-item">
           <a href="#" class="t-nav-link prod" id="pro"><span>Products</span><i class="fa-solid fa-chevron-down"></i></a>
           <ul class="dropdown-list product" id="product">
-            <li><a href="#" class="drop-link">Product</a></li>
-            <li><a href="#" class="drop-link">Product</a></li>
-            <li><a href="#" class="drop-link">Product</a></li>
+            <li><a href="#credit-select" class="drop-link">Credit Cards</a></li>
+            <li><a href="../html/account.html" class="drop-link">Bank Accounts</a></li>
+            <li><a href="../html/loan.html" class="drop-link">Bank Loans</a></li>
           </ul>
         </li>
         <li class="t-nav-item">
           <a href="#" class="t-nav-link ser" id="ser"><span>Services</span><i class="fa-solid fa-chevron-down"></i></a>
           <ul class="dropdown-list service" id="service">
-            <li><a href="#" class="drop-link">Service</a></li>
-            <li><a href="#" class="drop-link">Service</a></li>
-            <li><a href="#" class="drop-link">Service</a></li>
+            <li><a href="../php/loanApplication.php" class="drop-link">Apply Loan</a></li>
+            <li><a href="../php/cardApplication.php" class="drop-link">Apply Credit Cards</a></li>
+            <li><a href="../html/support.html" class="drop-link">FAQ</a></li>
           </ul>
         </li>
         <!-- end of dropdown list -->
 
-        <li class="t-nav-item"><a href="#" class="t-nav-link">Contact</a></li>
-        <li class="t-nav-item"><a href="#" class="t-nav-link"><i class="fa-solid fa-circle-user"></i><span>Accounts</span></a></li>
+        <li class="t-nav-item"><a href="../html/contact.html" class="t-nav-link">Contact</a></li>
+        <li class="t-nav-item"><a href="../php/profile.php" class="t-nav-link"><i class="fa-solid fa-circle-user"></i><span>Account</span></a></li>
       </ul>
       </nav>
     </header>
@@ -227,12 +227,12 @@
         </div>
         <div class="f-c-item">
           <ul class="f-l-list">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Personal</a></li>
-            <li><a href="#">Business</a></li>
-            <li><a href="#">Loans</a></li>
-            <li><a href="#">Company</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="./#m-cont">Home</a></li>
+            <li><a href="./#credit-select">Credit Cards</a></li>
+            <li><a href="./account.html">Bank Accounts</a></li>
+            <li><a href="./loan.html">Bank Loans</a></li>
+            <li><a href="./support.html">FAQ</a></li>
+            <li><a href="./contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="f-c-item">
@@ -252,12 +252,12 @@
         </div>
       </div>
       <ul class="f-apps-list">
-        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+        <li><a href="https://lk.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
       </ul>
-      <p class="copy-right">&copy;copyright &copy;Local Trust Bank(PVT).LTD <span id="cpy-date"></span> .All rights reserved</p>
+      <p class="copy-right" style="color:#fff;">&copy;copyright &copy;Local Trust Bank(PVT).LTD <span id="cpy-date"></span> .All rights reserved</p>
     </footer>
     <!-- end of footer -->
     <!-- feedback  form -->
@@ -289,7 +289,7 @@
     </section>
     <!-- end of feedback  form -->
 
-    <a href="#m-cont" class="scroll-link top-link"><i class="fa-solid fa-angles-up"></i></a>
+    <a href="#m-cont" class="scroll-link top-link"><i class="fa-solid fa-circle-chevron-up"></i></a>
   </main>
   <script src="../JS/script.js"></script>
   <script src="../JS/CCAscript.js"></script>
