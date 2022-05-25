@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['accountNo'] = $rowData['AccountNo'];
         }
       }
-      header("Location:../html/register.html");
+      header("Location:../php/success.php");
     }
     else{
       $_SESSION['checkData'] = 'File Submission is Failed';

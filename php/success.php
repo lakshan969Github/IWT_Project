@@ -1,8 +1,8 @@
 <?php require_once './connect.php' ?>
 
-<?php
+<?php 
 
-  session_start();  
+  session_start();
 
 ?>
 
@@ -12,28 +12,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open New Account</title>
   <link rel="shortcut icon" href="../images/logo/blue-logo-02.jpg">
-  <title>Oops..!</title>
   <link rel="stylesheet" href="../css/common-style.css">
 
   <!-- fontawesome link for add icons in web page  -->
   <script src="https://kit.fontawesome.com/4e05476d91.js" crossorigin="anonymous"></script>
 
   <style>
-    .error-content{
+    .success-content{
       width:100%;
       height:100vh;
       display:flex;
       justify-content:center;
       align-items:center;
       text-align: center;
-      background-image:url(../images/back3.jpg);
+      background-image:url(../images/back2.jpg);
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
     }
-    .error-item{
-      width:600px;
+    .success-item{
+      width:650px;
       padding:3rem;
       box-shadow: 6px 10px 18px #69696934;
       font-family:'Open Sans', sans-serif;
@@ -42,33 +42,37 @@
       background-color:#fff;
     }
 
-    .error-item i{
-      font-size:3rem;
-      color:rgb(247, 40, 40) ;
+    .success-item h2{
+      font-size:1.4rem;
+      color:#00ab00;
     }
 
-    .error-item span{
+    .success-item i{
+      font-size:3rem;
+      color:rgb(40, 109, 238);
+    }
+
+    .success-item span{
       font-size:1.2rem;
-      color:red;
       font-weight: 700;
     }
 
-    .error-links{
+    .success-links{
       width:100%;
       display:flex;
       justify-content: space-between;
       padding:1rem 0;
     }
 
-    .error-links a{
-      width:180px;
+    .success-links a{
+      width:250px;
       border-radius:10px;
       padding:0.5rem;
       color:#fff;
       transition:0.5s ease;
     }
 
-    .error-links a:hover{
+    .success-links a:hover{
       border-radius:0;
     }
 
@@ -77,14 +81,14 @@
 </head>
 
 <body>
-  <section class="error-content">
-    <div class="error-item">
-      <i class="fa-solid fa-triangle-exclamation"></i>
-      <h2>Form Submission is Failed</h2>
-      <span><?php echo $_SESSION['checkData'] ?></span>
-      <div class="error-links">
-        <a href="../html/register.html" style="background-color:rgb(40, 109, 238)">Register Again</a>
-        <a href="../html/home.html" style="background-color:rgb(247, 40, 40)">Cancel registration</a>
+  <section class="success-content">
+    <div class="success-item">
+      <i class="fa-solid fa-user-check"></i>
+      <h2>Your Account is Created Successfully</h2>
+      <span>Account No: <?php echo $_SESSION['accountNo'] ?></span>
+      <div class="success-links">
+        <a href="../html/register.html" style="background-color:rgb(40, 109, 238)">You Can Register Now</a>
+        <a href="../html/home.html" style="background-color:rgb(247, 40, 40)">Register Later</a>
       </div>
     </div>
   </section>
@@ -92,4 +96,3 @@
 
 </html>
 
-<?php $connection->close() ?>
