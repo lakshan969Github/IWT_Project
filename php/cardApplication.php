@@ -13,7 +13,7 @@
   $checkUser = $_SESSION['username'];
 
   if($checkUser == ''){
-    header('Location:../html/register.html');
+    header('Location:../html/login.html');
   }
   else{
       
