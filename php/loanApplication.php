@@ -42,152 +42,154 @@
 
     $_SESSION['getAccount'] = $accountNo;
 
-    if(isset($_POST['submit'])){
-      
-      if(!empty($_POST['loanType']) && !empty($_POST['loanAmount']) && 
-      !empty($_POST['loanTime']) && !empty($_POST['personStatus']) && !empty($_POST['personIndustry']) && 
-      !empty($_POST['income']) && !empty($_POST['workTPNumber'])){
+    $sql = ($connection->query("SELECT * FROM loan WHERE AccountNo = '$accountNo'"));
 
-        if($_POST['income'] < 30000.000){
-          $_SESSION['failError'] = "Your Monthly Income is insufficient to apply for Loans";
-          header("Location:./failed.php");
-        }
-        else{
+    if(mysqli_num_rows($sql) > 0){
+        $_SESSION['failError'] = "You already have a loan. First, pay off the current loan";
+        header("Location:./failed.php");
+    }else{
 
-          $getCurrentDate = date("Y-m-d");
-          $loanExDate = '';
+      if(isset($_POST['submit'])){
+        
+        if(!empty($_POST['loanType']) && !empty($_POST['loanAmount']) && 
+        !empty($_POST['loanTime']) && !empty($_POST['personStatus']) && !empty($_POST['personIndustry']) && 
+        !empty($_POST['income']) && !empty($_POST['workTPNumber'])){
 
-          switch($_POST['loanTime']){
-            case "three-M":
-              $loanExDate = date("Y-m-d", mktime(0,0,0, date("m") + 3, date("d"), date("Y")));
-              break;
-            
-            case "six-M":
-              $loanExDate = date("Y-m-d", mktime(0,0,0, date("m") + 6, date("d"), date("Y")));
-              break;  
-
-            case "nine-M":
-              $loanExDate = date("Y-m-d", mktime(0,0,0, date("m") + 9, date("d"), date("Y")));
-              break;
-
-            case "one-Y":
-              $loanExDate = date("Y-m-d", mktime(0,0,0, date("m"), date("d"), date("Y") + 1));
-              break;
-            
-            case "two-Y":
-              $loanExDate = date("Y-m-d", mktime(0,0,0, date("m"), date("d"), date("Y") + 2));
-              break;
-
-            case "four-Y":
-              $loanExDate = date("Y-m-d", mktime(0,0,0, date("m"), date("d"), date("Y") + 4));
-              break;
-
-            case "six-Y":
-              $loanExDate = date("Y-m-d", mktime(0,0,0, date("m"), date("d"), date("Y") + 6));
-              break;
-          }
-
-          $GY1 = strtotime($getCurrentDate); 
-          $GY2 = strtotime($loanExDate); 
-          
-          $Y1 = date("Y", $GY1);
-          $Y2 = date("Y", $GY2);
-
-          $M1 = date("m", $GY1);
-          $M2 = date("m", $GY2);
-
-          $nMonths = (($Y2 - $Y1) * 12) + ($M2 - $M1);
-
-
-          $interestRate;
-          $calInterest;
-          $finalAmount;
-
-          switch($_POST['loanType']){
-            case 'Personal Loan':
-              $interestRate = 8;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
-              $finalAmount = ($_POST['loanAmount'] + $calInterest);
-              break;
-            case 'Business Loan':
-              $interestRate = 10;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
-              $finalAmount = ($_POST['loanAmount'] + $calInterest);
-              break;
-            case 'Education Loan':
-              $interestRate = 3;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
-              $finalAmount = ($_POST['loanAmount'] + $calInterest);
-              break; 
-            case 'Home Loan':
-              $interestRate = 12;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
-              $finalAmount = ($_POST['loanAmount'] + $calInterest);
-              break;
-            case 'Auto Loan':
-              $interestRate = 9;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
-              $finalAmount = ($_POST['loanAmount'] + $calInterest);
-              break;
-            case 'Travel & vacation Loan':
-              $interestRate = 7;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
-              $finalAmount = ($_POST['loanAmount'] + $calInterest);
-              break;
-          }
-
-          $_SESSION['currentDate'] = $getCurrentDate;
-          $_SESSION['expireDate'] = $loanExDate;
-          $_SESSION['interRate'] = $interestRate;
-          $_SESSION['inter'] = $calInterest;
-          $_SESSION['finalAmount'] = $finalAmount;
-
-          
-          $sql = ($connection->query("INSERT INTO loan(
-            AccountNo,
-            loanType,
-            loanAmount,
-            loanInterestRate,
-            loanInterest,
-            loanFinalAmount,
-            loanPeriod,
-            loanApplyDate,
-            loanExpiresDate,
-            peronStatus,
-            peronIndustry,
-            income,
-            workTelnumber
-          ) VALUES (
-            '$accountNo',
-            '$_POST[loanType]',
-            '$_POST[loanAmount]',
-            '$interestRate',
-            '$calInterest',
-            '$finalAmount',
-            '$_POST[loanTime]',
-            '$getCurrentDate',
-            '$loanExDate',
-            '$_POST[personStatus]',
-            '$_POST[personIndustry]',
-            '$_POST[income]',
-            '$_POST[workTPNumber]'
-          )
-          "));
-
-          if($sql){
-            header("Location:./loanResult.php");
-          }
-          else{
-            $_SESSION['failError'] = "Loan Submission was Failed";
+          if($_POST['income'] < 30000.000){
+            $_SESSION['failError'] = "Your Monthly Income is insufficient to apply for Loans";
             header("Location:./failed.php");
           }
-        }
-      }
-      else{
-        $_SESSION['failError'] = "Some Details are Required!";
-        header("Location:./failed.php"); 
-      }
+          else{
 
+            $getCurrentDate = date("Y-m-d");
+            $loanExDate = '';
+
+            switch($_POST['loanTime']){
+              case "three-M":
+                $loanExDate = date("Y-m-d", mktime(0,0,0, date("m") + 3, date("d"), date("Y")));
+                break;
+              
+              case "six-M":
+                $loanExDate = date("Y-m-d", mktime(0,0,0, date("m") + 6, date("d"), date("Y")));
+                break;  
+
+              case "nine-M":
+                $loanExDate = date("Y-m-d", mktime(0,0,0, date("m") + 9, date("d"), date("Y")));
+                break;
+
+              case "one-Y":
+                $loanExDate = date("Y-m-d", mktime(0,0,0, date("m"), date("d"), date("Y") + 1));
+                break;
+              
+              case "two-Y":
+                $loanExDate = date("Y-m-d", mktime(0,0,0, date("m"), date("d"), date("Y") + 2));
+                break;
+
+              case "four-Y":
+                $loanExDate = date("Y-m-d", mktime(0,0,0, date("m"), date("d"), date("Y") + 4));
+                break;
+
+              case "six-Y":
+                $loanExDate = date("Y-m-d", mktime(0,0,0, date("m"), date("d"), date("Y") + 6));
+                break;
+            }
+
+            $GY1 = strtotime($getCurrentDate); 
+            $GY2 = strtotime($loanExDate); 
+            
+            $Y1 = date("Y", $GY1);
+            $Y2 = date("Y", $GY2);
+
+            $M1 = date("m", $GY1);
+            $M2 = date("m", $GY2);
+
+            $nMonths = (($Y2 - $Y1) * 12) + ($M2 - $M1);
+
+
+            $interestRate;
+            $calInterest;
+            $finalAmount;
+
+            switch($_POST['loanType']){
+              case 'Personal Loan':
+                $interestRate = 8;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $finalAmount = ($_POST['loanAmount'] + $calInterest);
+                break;
+              case 'Business Loan':
+                $interestRate = 10;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $finalAmount = ($_POST['loanAmount'] + $calInterest);
+                break;
+              case 'Education Loan':
+                $interestRate = 3;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $finalAmount = ($_POST['loanAmount'] + $calInterest);
+                break; 
+              case 'Home Loan':
+                $interestRate = 12;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $finalAmount = ($_POST['loanAmount'] + $calInterest);
+                break;
+              case 'Auto Loan':
+                $interestRate = 9;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $finalAmount = ($_POST['loanAmount'] + $calInterest);
+                break;
+              case 'Travel & vacation Loan':
+                $interestRate = 7;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $finalAmount = ($_POST['loanAmount'] + $calInterest);
+                break;
+            }
+
+            
+            $sql = ($connection->query("INSERT INTO loan(
+              AccountNo,
+              loanType,
+              loanAmount,
+              loanInterestRate,
+              loanInterest,
+              loanFinalAmount,
+              loanPeriod,
+              loanApplyDate,
+              loanExpiresDate,
+              peronStatus,
+              peronIndustry,
+              income,
+              workTelnumber
+            ) VALUES (
+              '$accountNo',
+              '$_POST[loanType]',
+              '$_POST[loanAmount]',
+              '$interestRate',
+              '$calInterest',
+              '$finalAmount',
+              '$_POST[loanTime]',
+              '$getCurrentDate',
+              '$loanExDate',
+              '$_POST[personStatus]',
+              '$_POST[personIndustry]',
+              '$_POST[income]',
+              '$_POST[workTPNumber]'
+            )
+            "));
+
+            if($sql){
+              header("Location:./loanResult.php");
+            }
+            else{
+              $_SESSION['failError'] = "Loan Submission was Failed";
+              header("Location:./failed.php");
+            }
+          }
+        }
+        else{
+          $_SESSION['failError'] = "Some Details are Required!";
+          header("Location:./failed.php"); 
+        }
+
+      }
     }
 
 ?>
@@ -316,11 +318,11 @@
             <input type="text" name="personStatus" id="personStatus" class="f-input" placeholder="Employee Status" required>
           </div>
           <div class="form-item">
-            <label for="">Employee Industry: <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <label for="">Employee Workplace: <strong style="color:rgb(40, 109, 238);">*</strong></label>
             <input type="text" name="personIndustry" id="personIndustry" class="f-input" placeholder="Employee Industry" required>
           </div>
           <div class="form-item">
-            <label for="">Monthly Income (LKR): <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <label for="">Monthly Income (LKR):(At least LKR.30000.00) <strong style="color:rgb(40, 109, 238);">*</strong></label>
             <input type="number" step="0.01" name="income" id="income" class="f-input" placeholder="Monthly Income (LKR)" required>
           </div>
           <div class="form-item">

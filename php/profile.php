@@ -17,7 +17,6 @@
     $result = mysqli_query($connection,$sql);
 
     if($result){
-        // echo mysqli_num_rows($result).
 
         while($row = mysqli_fetch_assoc($result)){
           $fname = $row['FirstName'];
@@ -45,7 +44,30 @@
             $cardBalance = "LKR.".$row['cardBalance'];
           }
         }
+    }
 
+    $sql1 = ($connection->query("SELECT * FROM loan where AccountNo = '$accountNo'"));
+
+    if(mysqli_num_rows($sql1) > 0){
+      if($sql1){
+        while($r = mysqli_fetch_assoc($sql1)){
+          $loanType = $r['loanType'];
+          $loanAmount = $r['loanAmount'];
+          $interRate = $r['loanInterestRate'];
+          $loanInter = $r['loanInterest'];
+          $finalLoan = $r['loanFinalAmount'];
+          $appDate = $r['loanApplyDate'];
+          $exDate = $r['loanExpiresDate'];
+        }
+      }
+    }else{
+      echo"
+        <style>
+          .loan-info{
+            display:none;
+          }
+        </style>
+      ";
     }
 
 
@@ -67,6 +89,33 @@
 
   <!-- fontawesome link for add icons in web page  -->
   <script src="https://kit.fontawesome.com/4e05476d91.js" crossorigin="anonymous"></script>
+  <style>
+    .loan-info{
+    box-shadow:var(--pri-box-shadow);
+    font-family: var(--pri-ft-family);
+    margin-bottom:2rem;
+    }
+
+    .loan-info h2{
+      text-align: center;
+      line-height:3;
+    }
+
+    .loan-data{
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .loan-data td{
+      padding:1.5rem 5rem;
+      font-size:1.25rem;
+    }
+
+    .loan-data tr:nth-child(odd){
+      background-color: #EDEDED;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -171,6 +220,39 @@
                 <img src="../images/6072743.jpg" alt="#" class="card-img">
               </div>
             </div>
+            <div class="loan-info">
+                <h2>Loan Details</h2>
+                <table class="loan-data">
+                  <tr>
+                    <td>Loan Amount</td>
+                    <td><?php echo "LKR." . $loanAmount ?></td>
+                  </tr>
+                  <tr>
+                    <td>Full Loan Amount</td>
+                    <td><?php echo "LKR." . $finalLoan ?></td>
+                  </tr>
+                  <tr>
+                    <td>Loan Type</td>
+                    <td><?php echo $loanType ?></td>
+                  </tr>
+                  <tr>
+                    <td>Loan Interest per month</td>
+                    <td><?php echo "LKR." . $loanInter ?></td>
+                  </tr>
+                  <tr>
+                    <td>Loan Interest Rate</td>
+                    <td><?php echo $interRate. "%" ?></td>
+                  </tr>
+                  <tr>
+                    <td>Loan Applied Date</td>
+                    <td><?php echo $appDate ?></td>
+                  </tr>
+                  <tr>
+                    <td>Loan Expired Date</td>
+                    <td><?php echo $exDate ?></td>
+                  </tr>
+                </table>
+              </div>
             <div class="trans-content">
               <div class="trans-link">
                 <a href="./ePassBook.php" target="_blank">View All Transactions</a>

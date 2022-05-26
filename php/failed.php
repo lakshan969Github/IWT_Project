@@ -84,7 +84,7 @@
       <span><?php echo $_SESSION['failError'] ?></span>
       <div class="error-links">
         <a href="./loanApplication.php" style="background-color:rgb(40, 109, 238)">Apply to Loan Again</a>
-        <a href="../html/home.html" style="background-color:rgb(247, 40, 40)">Cancel</a>
+        <a href="../html/loan.html" style="background-color:rgb(247, 40, 40)">Cancel</a>
       </div>
     </div>
   </section>
