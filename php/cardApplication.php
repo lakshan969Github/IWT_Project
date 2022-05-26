@@ -168,8 +168,8 @@
            </select>
         
            </lable><br />
-          <label for="accountNo">Account Number(Optional):</label>
-          <input type="number" name="accountNo" id="accountNo" class="input-text3" style="opacity:0.5;" readonly="true" value="<?php echo $accountNo ?>">
+          <label for="accountNo">Account Number:</label><br>
+          <input type="number" name="accountNo" id="accountNo" class="input-text" style="opacity:0.5;" readonly="true" value="<?php echo $accountNo ?>">
           <br />
            <label for="employeeStatus">Employee Status:</label>
            <input type="text" name="employeeStatus" id="employeeStatus" placeholder="Employee Status" class="input-text">

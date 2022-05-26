@@ -151,7 +151,7 @@
                     <td><?php echo $interRate . "%" ?></td>
                 </tr>
                 <tr>
-                    <td>Loan Interest for per Month</td>
+                    <td>Total Loan Interest</td>
                     <td><?php echo "LKR. " . $interPerMonth ?></td>
                 </tr>
                 <tr>

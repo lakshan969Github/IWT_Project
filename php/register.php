@@ -11,13 +11,14 @@
         $accountNumber = $_POST['accountNumber'];
         $userCheck = '';
 
-        echo $accountNumber;
 
         $sql = ($connection->query("SELECT * FROM useraccount WHERE AccountNo= '$accountNumber'"));
 
-        while($row = mysqli_fetch_assoc($sql)){
-            $p =  $row['Apassword'];
-            $u =  $row['Username'];
+        if($sql){
+            while($row = mysqli_fetch_assoc($sql)){
+                $p =  $row['Apassword'];
+                $u =  $row['Username'];
+            }
         }
 
         if($u == '-' && $p == '-'){

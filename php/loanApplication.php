@@ -113,32 +113,32 @@
             switch($_POST['loanType']){
               case 'Personal Loan':
                 $interestRate = 8;
-                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 1200) * $nMonths;
                 $finalAmount = ($_POST['loanAmount'] + $calInterest);
                 break;
               case 'Business Loan':
                 $interestRate = 10;
-                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 1200) * $nMonths;
                 $finalAmount = ($_POST['loanAmount'] + $calInterest);
                 break;
               case 'Education Loan':
                 $interestRate = 3;
-                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 1200) * $nMonths;
                 $finalAmount = ($_POST['loanAmount'] + $calInterest);
                 break; 
               case 'Home Loan':
                 $interestRate = 12;
-                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 1200) * $nMonths;
                 $finalAmount = ($_POST['loanAmount'] + $calInterest);
                 break;
               case 'Auto Loan':
                 $interestRate = 9;
-                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 1200) * $nMonths;
                 $finalAmount = ($_POST['loanAmount'] + $calInterest);
                 break;
               case 'Travel & vacation Loan':
                 $interestRate = 7;
-                $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+                $calInterest = ($_POST['loanAmount'] * $interestRate / 1200) * $nMonths;
                 $finalAmount = ($_POST['loanAmount'] + $calInterest);
                 break;
             }

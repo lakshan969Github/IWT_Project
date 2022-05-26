@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 
   $_SESSION['checkData'] = '';
 
-  if (!empty($_POST['fName']) && $_POST['lName']){
+  if (!empty($_POST['fName']) && !empty($_POST['lName'])){
 
     $sql = "INSERT INTO useraccount(
         FirstName,

@@ -54,6 +54,18 @@
 
   <!-- fontawesome link for add icons in web page  -->
   <script src="https://kit.fontawesome.com/4e05476d91.js" crossorigin="anonymous"></script>
+  <style>
+    .s-out{
+      position:fixed;
+      top:7rem;
+      left:2rem;
+      padding:1rem;
+      background-color:rgb(40, 109, 238);
+      z-index:100;
+      color:#FFF;
+      border-radius:10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -72,51 +84,10 @@
         <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
       </ul>
     </nav>
-    <!-- header -->
-    <header class="top-header" id="header-top">
-      <div class="t-h-st">
-        <div class="logo-content">
-          <a href="../html/home.html" class="logo-link"><img src="../images/logo/blue-logo-02.jpg" style="color:#fff;" alt="#" class="logo-img"></a>
-        </div>
-        <div class="search-content">
-          <div class="s-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <div class="s-bar">
-            <input type="search" name="search" id="search-input" placeholder="Search here">
-            <button type="button"  id="close-btn" onclick="clearContent()"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-        </div>
-      </div>
-      <ul class="t-nav-list">
-        <li class="t-nav-item"><a href="../html/home.html" class="t-nav-link">Home</a></li>
-
-        <!-- dropdown list -->
-        <li class="t-nav-item">
-          <a href="#" class="t-nav-link prod" id="pro"><span>Products</span><i class="fa-solid fa-chevron-down"></i></a>
-          <ul class="dropdown-list product" id="product">
-            <li><a href="#" class="drop-link">Product</a></li>
-            <li><a href="#" class="drop-link">Product</a></li>
-            <li><a href="#" class="drop-link">Product</a></li>
-          </ul>
-        </li>
-        <li class="t-nav-item">
-          <a href="#" class="t-nav-link ser" id="ser"><span>Services</span><i class="fa-solid fa-chevron-down"></i></a>
-          <ul class="dropdown-list service" id="service">
-            <li><a href="#" class="drop-link">Service</a></li>
-            <li><a href="#" class="drop-link">Service</a></li>
-            <li><a href="#" class="drop-link">Service</a></li>
-          </ul>
-        </li>
-        <!-- end of dropdown list -->
-
-        <li class="t-nav-item"><a href="../html/contact.html" class="t-nav-link">Contact</a></li>
-        <li class="t-nav-item"><a href="#" class="t-nav-link"><i class="fa-solid fa-circle-user"></i><span>Accounts</span></a></li>
-      </ul>
-      </nav>
-    </header>
-    <!-- end of header -->
 
     <!-- main section -->
     <section class="main-section">
+      <a href="../html/login.html" class="s-out"><i class="fa-solid fa-right-from-bracket"></i>Sign out</a>
       <div class="staff-content">
         <div class="page-item item-01">
           <div class="staff-img">
