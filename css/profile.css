@@ -16,6 +16,16 @@
     margin-left:10px;
 }
 
+.del-btn{
+    padding:1rem 2rem;
+    background-color:var(--sec-bg-clr);
+    color:#fff;
+    font-size:1.3rem;
+    font-family: var(--pri-ft-family);
+    border-radius:10px;
+    transition:var(--pri-transition);
+}
+
 .main-section{
     width: 100%;
     padding:2rem 4rem;

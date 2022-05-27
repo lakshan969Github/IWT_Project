@@ -46,6 +46,8 @@
         }
     }
 
+    $_SESSION['getAccount'] = $accountNo;
+
     $sql1 = ($connection->query("SELECT * FROM loan where AccountNo = '$accountNo'"));
 
     if(mysqli_num_rows($sql1) > 0){
@@ -69,6 +71,11 @@
         </style>
       ";
     }
+
+    if(isset($_POST['del'])){
+      $sql = ($connection->query("SELECT FROM useraccount WHERE Username = '$getUser'"));
+    }
+
 
 
 ?>
@@ -113,6 +120,10 @@
 
     .loan-data tr:nth-child(odd){
       background-color: #EDEDED;
+    }
+
+    .del-btn{
+      margin-left:62%;
     }
 
   </style>
@@ -180,6 +191,7 @@
     <!-- main section -->
     <section class="main-section">
       <a href="./logout.php" class="logout-btn"><span>Logout</span><i class="fa-solid fa-right-from-bracket"></i></a>
+      <a href="./del.php" class="logout-btn del-btn" name="del-btn"><span>Delete An Account</span><i class="fa-solid fa-right-from-bracket"></i></a>
       <div class="profile-content">
         <nav class="profile-nav">
           <div class="about-profile">
@@ -209,7 +221,7 @@
                     <span>Available Balance</span>
                   </li>
                   <li>
-                    <h2 style="color: #fb1c16;">LKR 2123.90</h2>
+                    <h2 style="color: #fb1c16;">LKR 1000.90</h2>
                     <span>Recent Payment</span>
                   </li>
                 </ul>

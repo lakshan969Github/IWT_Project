@@ -18,6 +18,7 @@
             while($row = mysqli_fetch_assoc($sql)){
                 $p =  $row['Apassword'];
                 $u =  $row['Username'];
+                $a = $row['AccountNo'];
             }
         }
 

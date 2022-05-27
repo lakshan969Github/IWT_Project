@@ -85,7 +85,7 @@
     <div class="success-item">
       <i class="fa-solid fa-user-check"></i>
       <h2>Your Account is Created Successfully</h2>
-      <span>Account No: <?php echo $_SESSION['accountNo'] . '*Remember your Account Number' ?></span>
+      <span>Account No: <?php echo $_SESSION['accountNo'] ?><strong style="color:red; font-size:1rem;">(*Remember your Account Number)</strong></span>
       <div class="success-links">
         <a href="../html/register.html" style="background-color:rgb(40, 109, 238)">You Can Register Now</a>
         <a href="../html/home.html" style="background-color:rgb(247, 40, 40)">Register Later</a>

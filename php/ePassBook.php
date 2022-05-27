@@ -105,54 +105,54 @@
           <th>Value(LKR)</th>
         </tr>
         <tr>
-          <td>2022/05/02</td>
+          <td>2022/04/10</td>
           <td>Bill payment</td>
           <td>2000.00</td>
         </tr>
         <tr>
-          <td>2022/06/01</td>
+          <td>2022/04/14</td>
           <td>Money Transfer (534447143)</td>
           <td>300000.00</td>
         </tr>
         <tr>
-          <td>2022/05/02</td>
+          <td>2022/04/20</td>
           <td>Bill payment</td>
-          <td>2000.00</td>
+          <td>1500.00</td>
         </tr>
         <tr>
-          <td>2022/06/01</td>
+          <td>2022/04/28</td>
           <td>Money Transfer (534447143)</td>
-          <td>300000.00</td>
+          <td>400000.00</td>
         </tr>
         <tr>
-          <td>2022/05/02</td>
+          <td>2022/04/30</td>
           <td>Bill payment</td>
-          <td>2000.00</td>
+          <td>1000.00</td>
         </tr>
         <tr>
-          <td>2022/06/01</td>
+          <td>2022/05/01</td>
           <td>Money Transfer (534447143)</td>
           <td>300000.00</td>
         </tr>
         <tr>
-          <td>2022/05/02</td>
+          <td>2022/05/05</td>
           <td>Bill payment</td>
-          <td>2000.00</td>
+          <td>11000.00</td>
         </tr>
         <tr>
-          <td>2022/06/01</td>
+          <td>2022/05/10</td>
           <td>Money Transfer (534447143)</td>
-          <td>300000.00</td>
+          <td>750000.00</td>
         </tr>
         <tr>
-          <td>2022/05/02</td>
+          <td>2022/05/15</td>
           <td>Bill payment</td>
-          <td>2000.00</td>
+          <td>8000.00</td>
         </tr>
         <tr>
-          <td>2022/06/01</td>
+          <td>2022/05/23</td>
           <td>Money Transfer (534447143)</td>
-          <td>300000.00</td>
+          <td>600000.00</td>
         </tr>
       </table>
   
